@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<article class="post-detail">
+
+  <div class="post-header">
+    <span class="cat-badge">{{ page.categories | first }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">📅 {{ page.date | date: "%d %B %Y" }}</p>
+  </div>
+
+  {% if page.cover %}
+  <img class="cover" src="{{ page.cover }}" alt="{{ page.title }}">
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.galleria %}
+  <section class="galleria">
+    <h2>📸 Foto</h2>
+    <div class="foto-grid">
+      {% for foto in page.galleria %}
+      <a href="{{ foto }}" target="_blank">
+        <img src="{{ foto }}" alt="foto">
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.gpx %}
+  <section class="gpx-box">
+    <h2>🗺️ Traccia GPX</h2>
+    <a class="btn-gpx" href="{{ page.gpx }}" download>⬇️ Scarica traccia GPX</a>
+  </section>
+  {% endif %}
+
+  <a class="back-link" href="/">← Torna alla home</a>
+
+</article>

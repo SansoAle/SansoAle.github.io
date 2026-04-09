@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="/">⛰️ SansoAle</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cat/vanlife.html">Vanlife</a>
+      <a href="/cat/alpinismo.html">Alpinismo</a>
+      <a href="/cat/arrampicata.html">Arrampicata</a>
+      <a href="/cat/escursionismo.html">Escursionismo</a>
+      <a href="/cat/sport.html">Sport</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  {{ content }}
+</main>
+
+<footer>
+  <p>© {{ site.time | date: "%Y" }} SansoAle</p>
+</footer>
+
+</body>
+</html>

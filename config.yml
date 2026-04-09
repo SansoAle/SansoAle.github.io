@@ -1,0 +1,6 @@
+title: "SansoAle"
+description: "Vanlife, alpinismo, arrampicata ed escursionismo"
+baseurl: ""
+url: "[sansoale.github.io](https://sansoale.github.io)"
+markdown: kramdown
+permalink: /:categories/:title/

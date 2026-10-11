@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Garmin Connect" version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <link href="connect.garmin.com"><text>Garmin Connect</text></link>
+    <time>2024-05-01T08:00:00.000Z</time>
+  </metadata>
+  <wpt lat="45.4642000" lon="9.1900000"><ele>120</ele><name><![CDATA[Bar & ristoro "Da Gino"]]></name></wpt>
+  <trk>
+    <name>Giro gravel &amp; colline</name>
+    <type>cycling</type>
+    <trkseg>
+      <trkpt lat="45.4642000" lon="9.1900000"><ele>120.0</ele><time>2024-05-01T10:00:00.000+02:00</time>
+        <extensions><ns3:TrackPointExtension><ns3:hr>120</ns3:hr><ns3:cad>80</ns3:cad></ns3:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="45.4651000" lon="9.1900000"><ele>122.0</ele><time>2024-05-01T10:00:20.000+02:00</time>
+        <extensions><ns3:TrackPointExtension><ns3:hr>125</ns3:hr></ns3:TrackPointExtension></extensions></trkpt>
+      <trkpt lat="45.4660000" lon="9.1900000"><ele>124.0</ele><time>2024-05-01T10:00:40.000+02:00</time></trkpt>
+      <trkpt lat="45.4669000" lon="9.1900000"><ele>126.0</ele><time>2024-05-01T10:01:00.000+02:00</time></trkpt>
+    </trkseg>
+    <trkseg>
+      <trkpt lat="45.4700000" lon="9.1900000"><ele>130.0</ele><time>2024-05-01T08:10:00Z</time></trkpt>
+      <trkpt lat="45.4709000" lon="9.1900000"><ele>128.0</ele><time>2024-05-01T08:10:20Z</time></trkpt>
+      <trkpt lat="45.4718000" lon="9.1900000"><ele>126.0</ele><time>2024-05-01T08:10:40Z</time></trkpt>
+      <trkpt lat="999" lon="9.19"><ele>0</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

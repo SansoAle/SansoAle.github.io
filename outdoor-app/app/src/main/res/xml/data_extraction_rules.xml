@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Il backup è gestito dall'app (file ZIP); il backup automatico di Android è disattivato. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" />
+        <exclude domain="file" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="file" />
+        <include domain="database" />
+        <include domain="sharedpref" />
+    </device-transfer>
+</data-extraction-rules>

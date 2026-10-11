@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Montagne stilizzate con sole: icona adattiva 108x108dp (area sicura 66dp al centro). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFF2C14E"
+        android:pathData="M70,38m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M24,74 L44,42 L54,56 L62,46 L84,74 Z" />
+    <path
+        android:fillColor="#FFCFE3D3"
+        android:pathData="M44,42 L50,51.6 L46.5,50 L43,53 L39.5,49.2 Z" />
+    <path
+        android:strokeColor="#FFF2C14E"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M30,80 C40,76 50,82 60,78 C68,75 74,79 80,77" />
+</vector>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gpx version="1.0" creator="komoot" xmlns="http://www.topografix.com/GPX/1/0">
+  <rte>
+    <name>Anello del lago</name>
+    <rtept lat="46.0000" lon="10.0000"><ele>800</ele></rtept>
+    <rtept lat="46.0010" lon="10.0000"><ele>810</ele></rtept>
+    <rtept lat="46.0020" lon="10.0000"><ele>830</ele></rtept>
+    <rtept lat="46.0030" lon="10.0000"/>
+  </rte>
+</gpx>

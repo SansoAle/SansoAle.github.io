@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Solo per scaricare le tile della mappa: tutti i dati restano sul telefono. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Per leggere le coordinate GPS contenute nell'EXIF delle foto. -->
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+
+    <!--
+        Fase 2 (registrazione traccia dal vivo): serviranno
+        ACCESS_FINE_LOCATION, ACCESS_BACKGROUND_LOCATION (facoltativa), FOREGROUND_SERVICE,
+        FOREGROUND_SERVICE_LOCATION, POST_NOTIFICATIONS e la dichiarazione del servizio
+        con android:foregroundServiceType="location". Vedi recording/TrackRecorder.kt.
+    -->
+
+    <application
+        android:name=".UsciteApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Uscite"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.Uscite">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- "Condividi con" da Strava, Komoot, Garmin, file manager… -->
+            <intent-filter android:label="@string/import_gpx_share_label">
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/gpx+xml" />
+                <data android:mimeType="application/gpx" />
+                <data android:mimeType="application/xml" />
+                <data android:mimeType="text/xml" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+
+            <!-- Apertura di un file .gpx -->
+            <intent-filter android:label="@string/import_gpx_share_label">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="application/gpx+xml" />
+                <data android:mimeType="application/gpx" />
+            </intent-filter>
+            <intent-filter android:label="@string/import_gpx_share_label">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/octet-stream" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.gpx" />
+                <data android:pathPattern=".*\\..*\\.gpx" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

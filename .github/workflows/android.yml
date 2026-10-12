@@ -19,6 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: write
     defaults:
       run:
         working-directory: outdoor-app
@@ -44,6 +46,24 @@ jobs:
           name: diario-uscite-apk
           path: outdoor-app/app/build/outputs/apk/**/*.apk
           if-no-files-found: error
+
+      # L'APK release viene pubblicato (sovrascrivendo) sul branch "apk", così si scarica
+      # direttamente dal telefono: https://github.com/SansoAle/SansoAle.github.io/raw/apk/diario-uscite.apk
+      - name: Pubblica l'APK sul branch apk
+        if: github.event_name != 'pull_request'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/apk
+          cp app/build/outputs/apk/release/app-release.apk /tmp/apk/diario-uscite.apk
+          cd /tmp/apk
+          echo "APK release compilato dal commit ${GITHUB_SHA} (branch ${GITHUB_REF_NAME})" > LEGGIMI.txt
+          git init -q -b apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -qm "APK da ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" apk
 
       - name: Carica report dei test
         if: failure()

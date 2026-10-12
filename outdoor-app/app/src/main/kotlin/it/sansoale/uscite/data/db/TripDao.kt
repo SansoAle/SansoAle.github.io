@@ -39,9 +39,9 @@ abstract class TripDao {
         """
         SELECT trip.*,
           (SELECT p.thumbName FROM photo p WHERE p.tripId = trip.id
-             ORDER BY CASE WHEN p.id = trip.coverPhotoId THEN 0 ELSE 1 END, p.sortOrder, p.id LIMIT 1) AS coverThumb,
+             ORDER BY CASE WHEN p.id = (SELECT c.coverPhotoId FROM trip c WHERE c.id = p.tripId) THEN 0 ELSE 1 END, p.sortOrder, p.id LIMIT 1) AS coverThumb,
           (SELECT p.fileName FROM photo p WHERE p.tripId = trip.id
-             ORDER BY CASE WHEN p.id = trip.coverPhotoId THEN 0 ELSE 1 END, p.sortOrder, p.id LIMIT 1) AS coverFile,
+             ORDER BY CASE WHEN p.id = (SELECT c.coverPhotoId FROM trip c WHERE c.id = p.tripId) THEN 0 ELSE 1 END, p.sortOrder, p.id LIMIT 1) AS coverFile,
           (SELECT COUNT(*) FROM photo p WHERE p.tripId = trip.id) AS photoCount,
           (SELECT v.roadKm FROM van_detail v WHERE v.tripId = trip.id) AS roadKm,
           (SELECT m.summit FROM mountain_detail m WHERE m.tripId = trip.id) AS summit

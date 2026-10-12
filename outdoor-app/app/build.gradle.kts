@@ -66,6 +66,18 @@ android {
 
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        // Librerie native (MapLibre) compresse nell'APK: file molto più piccolo da scaricare.
+        jniLibs.useLegacyPackaging = true
+    }
+
+    // Un APK per architettura (arm64 è quello giusto per quasi tutti i telefoni) più uno universale.
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("arm64-v8a", "armeabi-v7a", "x86_64")
+            isUniversalApk = true
+        }
     }
 }
 

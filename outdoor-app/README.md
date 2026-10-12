@@ -84,7 +84,8 @@ cd outdoor-app
 ./gradlew assembleRelease                           # APK "release" (più fluido)
 ```
 
-Gli APK si trovano in `app/build/outputs/apk/debug/` e `app/build/outputs/apk/release/`.
+Gli APK si trovano in `app/build/outputs/apk/debug/` e `app/build/outputs/apk/release/`: uno per
+architettura (`arm64-v8a`, `armeabi-v7a`, `x86_64`) più uno `universal` che funziona ovunque.
 
 A ogni push che tocca `outdoor-app/`, il workflow GitHub Actions `.github/workflows/android.yml`
 esegue i test e compila entrambi gli APK. Li trovi in **Actions → ultima esecuzione → Artifacts →
@@ -100,10 +101,12 @@ privata, non presente nel repository.
 
 ## Installare l'APK sul telefono
 
-1. Scarica `app-release.apk`: dagli *Artifacts* di GitHub Actions (è dentro uno ZIP, estrailo), oppure
-   da `app/build/outputs/apk/release/` se l'hai compilato tu.
-2. Copialo sul telefono: scaricalo direttamente dal browser del telefono, oppure trasferiscilo via
-   USB, Google Drive o Telegram.
+1. Dal browser del telefono apri
+   **https://github.com/SansoAle/SansoAle.github.io/raw/apk/diario-uscite.apk**
+   (sempre l'ultima versione compilata, per telefoni arm64 — praticamente tutti quelli degli ultimi anni).
+   Se l'installazione dice che l'app non è compatibile usa
+   `https://github.com/SansoAle/SansoAle.github.io/raw/apk/diario-uscite-universale.apk`.
+2. In alternativa scaricalo dal computer e trasferiscilo via USB, Google Drive o Telegram.
 3. Aprilo dal file manager (o dalla notifica di download). Android chiederà di **consentire
    l'installazione da questa origine** per l'app da cui lo apri (Chrome, Files…): attiva l'opzione e
    torna indietro.
@@ -115,7 +118,7 @@ In alternativa, con il telefono collegato via USB e il *Debug USB* attivo (Impos
 telefono → tocca 7 volte "Numero build" → Opzioni sviluppatore):
 
 ```bash
-adb install -r app/build/outputs/apk/release/app-release.apk
+adb install -r app/build/outputs/apk/release/app-arm64-v8a-release.apk
 ```
 
 ## Note

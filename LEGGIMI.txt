@@ -1,0 +1,1 @@
+APK release compilato dal commit 7975294b265ec2e3f266182c8ee97d29567ee8b8 (branch claude/android-outdoor-trips-app-nmblwt)
